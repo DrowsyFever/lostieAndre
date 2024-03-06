@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         const groupsCollection = db.collection('groups');
 
         if (req.method === 'POST') {
-            const { name, members } = req.body;
+            const { name } = req.body;
             const result = await groupsCollection.insertOne({ name });
             res.status(201).json(result.ops[0]);
         } else if (req.method === 'GET') {
