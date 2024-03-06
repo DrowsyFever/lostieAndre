@@ -14,7 +14,7 @@ export default async function handler(req, res) {
 
         if (req.method === 'POST') {
             const { name, members } = req.body;
-            const result = await groupsCollection.insertOne({ name, members });
+            const result = await groupsCollection.insertOne({ name });
             res.status(201).json(result.ops[0]);
         } else if (req.method === 'GET') {
             const groups = await groupsCollection.find().toArray();
