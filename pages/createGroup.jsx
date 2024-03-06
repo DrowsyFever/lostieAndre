@@ -21,9 +21,7 @@ export default function CreateGroup() {
 
             if (response.ok) {
                 router.push('/groups');
-            } else {
-                console.error('Error:', response.statusText);
-            }
+            } 
         } catch (error) {
             console.error('Error:', error);
         }
