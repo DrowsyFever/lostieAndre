@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
-const uri = 'mongodb+srv://ivomalheirolobo:Lxb2kH0EUoCHeIWH@clusterprime.cdq0wtq.mongodb.net/Users';
+const uri = process.env.MONGODB_URI;
 const dbName = 'Users';
 
 export default async function handler(req, res) {
@@ -13,8 +13,8 @@ export default async function handler(req, res) {
         const groupsCollection = db.collection('groups');
 
         if (req.method === 'POST') {
-            const { name, description, members } = req.body;
-            const result = await groupsCollection.insertOne({ name, description, members });
+            const { name, members } = req.body;
+            const result = await groupsCollection.insertOne({ name, members });
             res.status(201).json(result.ops[0]);
         } else if (req.method === 'GET') {
             const groups = await groupsCollection.find().toArray();

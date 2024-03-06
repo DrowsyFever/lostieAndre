@@ -1,6 +1,6 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
-const uri = 'mongodb+srv://ivomalheirolobo:Lxb2kH0EUoCHeIWH@clusterprime.cdq0wtq.mongodb.net/Users';
+const uri = process.env.MONGODB_URI;
 const dbName = 'Users';
 
 export default async function handler(req, res) {
