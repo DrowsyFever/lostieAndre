@@ -61,7 +61,6 @@ export default function Group({ group, friendId }) {
     return (
         <div>
             <h1>{group.name}</h1>
-            <p>{group.description}</p>
             <button onClick={handleDelete}>Delete Group</button>
             <button onClick={handleAddFriend}>Add Friend</button>
         </div>
