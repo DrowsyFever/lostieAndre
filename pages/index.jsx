@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Scanner from '../components/scanner';
 import Generate from '../components/generator';
 import CreateGroup from './createGroup';
-
+import FooterNavbar from '../components/navbar';
 
 export default function HomePage({ username }) {
     return (
@@ -28,7 +28,9 @@ export default function HomePage({ username }) {
                     <Link href="/signup">Sign Up</Link>
                 </>
             }
+            <FooterNavbar/>
         </Layout>
+        
     );
 }
 

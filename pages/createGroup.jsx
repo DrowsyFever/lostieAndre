@@ -36,10 +36,10 @@ export default function CreateGroup() {
                     Name:
                     <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 </label>
-                <label>
+                {/* <label>
                     Members:
                     <input type="text" value={members} onChange={(e) => setMembers(e.target.value)} />
-                </label>
+                </label> */}
                 <button type="submit">Create Group</button>
             </form>
         </div>
