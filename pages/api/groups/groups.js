@@ -1,4 +1,4 @@
-import { MongoClient, ObjectId } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
 const dbName = 'Users';
@@ -15,7 +15,11 @@ export default async function handler(req, res) {
         if (req.method === 'POST') {
             const { name } = req.body;
             const result = await groupsCollection.insertOne({ name });
-            res.status(201).json();//.json(result.ops[0])
+            if (result.insertedCount === 1) {
+                res.status(201).json({ message: 'Group created successfully', group: result.ops[0] });
+            } else {
+                res.status(500).json({ message: 'Failed to create group' });
+            }
         } else if (req.method === 'GET') {
             const groups = await groupsCollection.find().toArray();
             res.status(200).json(groups);
@@ -30,4 +34,3 @@ export default async function handler(req, res) {
         await client.close();
     }
 }
- 
